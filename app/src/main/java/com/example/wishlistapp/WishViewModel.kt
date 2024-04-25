@@ -53,6 +53,7 @@ class WishViewModel(
     fun deleteWish(wish: Wish){
         viewModelScope.launch(Dispatchers.IO) {
             wishRepository.deleteAWish(wish = wish)
+            getAllWishes = wishRepository.getWishes()
         }
     }
 }
