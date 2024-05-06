@@ -47,6 +47,7 @@ class WishViewModel(
     fun updateWish(wish: Wish){
         viewModelScope.launch(Dispatchers.IO) {
             wishRepository.updateAWish(wish = wish)
+            getAllWishes = wishRepository.getWishes()
         }
     }
 

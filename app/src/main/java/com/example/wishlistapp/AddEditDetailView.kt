@@ -12,7 +12,6 @@ import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.Button
-import androidx.compose.material.ButtonColors
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
@@ -24,6 +23,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
@@ -58,7 +58,8 @@ fun AddEditDetailView(
             title = if (id != 0L) stringResource(id = R.string.update_wish)
             else stringResource(id = R.string.add_wish)
         ) {navController.navigateUp()}
-    }, scaffoldState = scaffoldState
+    }, scaffoldState = scaffoldState,
+        backgroundColor = colorResource(id = R.color.background_color)
     ) {
         Column(
             modifier = Modifier
@@ -137,7 +138,7 @@ fun WishTextField(
         value = value,
         onValueChange = onValueChanged,
         label = { Text(text = label, color = Color.Black)},
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.padding(start = 8.dp, end = 8.dp).fillMaxWidth(),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
         colors = TextFieldDefaults.outlinedTextFieldColors(
             textColor = Color.Black,
@@ -145,7 +146,8 @@ fun WishTextField(
             unfocusedBorderColor = Color.Black,
             cursorColor = Color.Black,
             focusedLabelColor = Color.Black,
-            unfocusedLabelColor = Color.Black
+            unfocusedLabelColor = Color.Black,
+            backgroundColor = Color.White
         )
         )
 }
