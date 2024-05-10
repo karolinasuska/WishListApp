@@ -10,6 +10,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -75,6 +76,7 @@ fun HomeView(
 
     ){
         val wishList = viewModel.getAllWishes.collectAsState(initial = listOf())
+        var isChecked by remember{ mutableStateOf(false) }
         LazyColumn (modifier = Modifier
             .fillMaxSize()
             .padding(it)){
@@ -105,9 +107,16 @@ fun WishItem(wish: Wish, onClick: () -> Unit){
        elevation = 10.dp,
        backgroundColor = Color.White
    ){
-       Column(modifier = Modifier.padding(16.dp)) {
-           Text(text = wish.title, fontWeight = FontWeight.ExtraBold)
-           Text(text = wish.description)
+       var isChecked by remember{ mutableStateOf(false) }
+       Row(modifier = Modifier.padding(8.dp)) {
+           Checkbox(checked = isChecked,
+               onCheckedChange = {isChecked = it},
+               modifier = Modifier.align(Alignment.CenterVertically)
+               )
+           Column(modifier = Modifier.padding(8.dp)) {
+               Text(text = wish.title, fontWeight = FontWeight.ExtraBold)
+               Text(text = wish.description)
+           }
        }
    }
 }
