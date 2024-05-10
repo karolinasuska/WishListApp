@@ -76,7 +76,6 @@ fun HomeView(
 
     ){
         val wishList = viewModel.getAllWishes.collectAsState(initial = listOf())
-        var isChecked by remember{ mutableStateOf(false) }
         LazyColumn (modifier = Modifier
             .fillMaxSize()
             .padding(it)){
