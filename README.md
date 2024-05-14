@@ -31,7 +31,7 @@ https://github.com/kSuska1/WishListApp/assets/92305719/6cf6df99-5382-454d-b33b-9
 
 1. Clone this repository to your local machine:
 ```
-git clone https://github.com/kSuska1/WishListApp
+git clone https://github.com/kSuska1/WishListApp.git
 ```
 2. Open Android Studio and select "Open an existing Android Studio project." Navigate to the location where you cloned the repository and select the folder containing the build.gradle file.
 
